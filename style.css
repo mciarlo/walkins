@@ -105,14 +105,13 @@ a:hover {
     font-family: Arial, sans-serif;
     float: left;
     width: 100%;
-    background: #252628;
+    background: #fff;
     border-bottom: 1px solid #1a1a1a;
     min-height: 46px;
-    padding: .5em 0;
 }
 
 #nav.loading {
-    background: #252628 url(images/ajax-loader.gif) center 11px no-repeat;
+    background: #fff url(images/ajax-loader.gif) center 11px no-repeat;
 }
 
 #logo {
@@ -136,12 +135,13 @@ a:hover {
     font-size: .6em;
     padding: 1.4em .6em;
     font-weight: bold;
+    color: #777;
 }
 
 
 #nav-items a:hover,
 #nav-items a.active {
-    color: white;
+    color: #444;
 }
 
 #sign-in-btn {
@@ -173,7 +173,7 @@ a:hover {
     float: left;
     width: 100%;
     padding: 15px 0;
-    background: #fff;
+    background: #1b1c1e;
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     z-index: 9999;
     position: relative;
@@ -222,7 +222,7 @@ a:hover {
 .stream-toolbar h3 {
     font-family: Avenir Next Condensed;
     font-weight: bold;
-    color: #3a3d3e;
+    color: #fff;
     font-size: 1.2em;
     float: left;
     text-transform: uppercase;
@@ -233,7 +233,7 @@ a:hover {
 }
 
 .toolbar .last-updated {
-    color: #868b90;
+    color: #777;
     font-size: .55em;
     margin-top: .45em;
     float: right;
@@ -405,11 +405,17 @@ a:hover {
 
 #related-group {
     position: absolute;
-    bottom: -30px;
-    left: 50%;
-    margin-left: -470px;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    background: #202325;
+    z-index: 2;
+    padding: 10px 0;
+}
+
+#related-group ul {
+    margin: 0 auto;
     width: 940px;
-    background: #3a3c3d;
     z-index: 2;
 }
 
@@ -1003,7 +1009,7 @@ input {
 
 #new-article-content {
     position: absolute;
-    top: 66px;
+    top: 47px;
     left: 100%;
     width: 100%;
     z-index: 9999;
