@@ -11,30 +11,35 @@
       	<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" /> 
     </head>
     <body>
+
         <nav id="nav">
             <div class="wrapper">
+				
                 <img id="logo" src="images/logo.png" alt="logo" width="" height="" />
                 
                 <ul id="nav-items">
                     <li>
-                        <a href="#" class="active">Latest Stories</a>
+                        <a href="#" class="active">Home</a>
                     </li>
-                    <li>
+                                        <li>
                         <a href="#">World</a>
                     </li>
+                    
                     <li>
-                        <a href="#">Tech</a>
+                        <a href="#">US</a>
                     </li>
                     <li>
                         <a href="#">Politics</a>
                     </li>
                     <li>
-                        <a href="#">Business</a>
-                    </li>
-                    <li>
                         <a href="#">Markets</a>
                     </li>
+
                     <li>
+                        <a href="#">Tech</a>
+                    </li>
+                    
+                                        <li>
                         <a href="#">Life</a>
                     </li>
                     <li>
@@ -44,11 +49,15 @@
                         <a href="#">More</a>
                     </li>
                 </ul>
-                
-                <a href="#" id="sign-in-btn">
+
+				
+				
+				
+				<a href="#" id="sign-in-btn">
                     <span class="default-text">Sign up or Log In</span>
                     <span class="logged-in-text">Welcome Rob</span>
                 </a>
+                
             </div>
             
             <div id="login">
@@ -200,6 +209,12 @@
                     </div>
                 </div>
             </div>
+                <a href="#" id="toggle-nav">
+					<span></span>
+					<span></span>
+					<span></span>
+				</a>
+
         </nav>
         
         <div id="container">
@@ -533,15 +548,53 @@
         </div>
         
         <div id="new-article-content">
-            <div class="toolbar article">
-                <div class="wrapper">
-                    <h1>2013 Sequester</h1>
-                    <a href="#" class="follow-btn button dark"><span class="icon"></span>Follow</a>
-                    <span class="follower-count">171,461 Followers</span>
+<div class="toolbar article">
+                    <div id="stream-id">
+                        <h1>2013 Sequester</h1>
+                        <a href="#" class="follow-btn button dark"><span class="icon"></span>Follow</a>
+                        <span class="follower-count">171,461 Followers</span>
+                    </div>
                     
-                    <a href="#" class="close-article jump-link button dark">Back to Latest Stories</a>
+                    <div id="ul-wrapper">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="images/square_image_01.jpg" alt="square_image_01" width="" height="" />
+                                <h2>Senate Democrats eye plan to ease pain of spending cuts</h2>
+                                <span class="time">57 minutes ago</span>
+                            </a>
+                        </li>
+                        
+                        <li class="active">
+                           <a href="#" id="active-article">
+                                <img src="images/square_image_02.jpg" alt="square_image_02" width="" height="" />
+                                <h2>Boehner warns Senate Democrats on US government funding bill</h2>
+                                <span class="time">1 hour ago</span>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="#">
+                                <img src="images/square_image_03.jpg" alt="square_image_03" width="" height="" />
+                                <h2>Obama dials down budget blame in new tack on deficit fight</h2>
+                                <span class="time">1 hour ago</span>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="#">
+                                <img src="images/square_image_04.jpg" alt="square_image_03" width="" height="" />
+                                <h2>GOP leaders meet with President Obama to discuss sequester</h2>
+                                <span class="time">2 hours ago</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div id="show-more"></div>
                 </div>
+                
+                <a id="close-stream" href="#"><span>+</span></a>
             </div>
+            
             
         <div class="main-article article loading">
             <div class="image-wrapper">
@@ -671,50 +724,6 @@
                 </div>        
             </div>
             
-            <div class="stream-jump">
-                <div class="stream-toolbar">
-                    <div class="wrapper">
-                        <h3><a href="#">The Latest in 2013 Sequester</a></h3>
-                        
-                        <a href="#" class="jump-link button gray">View all</a>
-                    </div>
-                </div>
-                
-                <ul class="stream-items">
-                    <li>
-                        <a href="#">
-                            <img src="images/image01.jpg" alt="image06" width="" height="" />
-                            <h3>Senate Democrats plan to ease pain of spending cuts</h3>
-                            <span class="time">4 minutes ago</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="#">
-                            <img src="images/image02.jpg" alt="image06" width="" height="" />
-                            <h3>Sequester cuts spur calls to Congress from irate constituents</h3>
-                            <span class="time">4 minutes ago</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="#">
-                            <img src="images/image03.jpg" alt="image06" width="" height="" />
-                            <h3>Obama dials down budget blame on new tack on deficit fight</h3>
-                            <span class="time">7 minutes ago</span>
-                        </a>
-                    </li>
-                    
-                    <li>
-                        <a href="#">
-                            <img src="images/image05.jpg" alt="image06" width="" height="" />
-                            <h3>Local community begins sequester fight, plans to leave</h3>
-                            <span class="time">11 minutes ago</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            
             <div id="comment-section">
                 <div class="wrapper">
                     <h2>63 Responses</h2>
@@ -797,7 +806,7 @@
         
         <ul id="new-nav"> 
                 <li>
-                    <a href="#" class="active">Latest Stories</a>
+                    <a href="#" class="active">Home</a>
                         </li>
                     <li>
                         <a href="#">Tech</a>

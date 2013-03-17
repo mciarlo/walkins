@@ -11,6 +11,7 @@ $(function () {
                 $toolbar.addClass('fixed');
                 
                 if ($toolbar.hasClass('article')) {
+                    $('#new-article-content').css('margin-top', 92);
                     return;
                 }
                 
@@ -19,6 +20,7 @@ $(function () {
                 $toolbar.removeClass('fixed');            
                 
                 if ($toolbar.hasClass('article')) {
+                    $('#new-article-content').css('margin-top', 0);
                     return;
                 }
                 
@@ -35,11 +37,7 @@ $(function () {
         var $settings = $('#user-settings'),
             $login = $('#login');
             
-        if (!$('#sign-in-btn').hasClass('active')) {
-            $login.slideToggle(250, function () {
-                toolbarOffset = $toolbar.offset().top;
-            }).find('#username').focus();
-        } else {    
+        if ($('#sign-in-btn').hasClass('active')) {  
             $settings.slideToggle(250, function () {
                 toolbarOffset = $toolbar.offset().top;
             });
@@ -118,10 +116,14 @@ $(function () {
     
     };  
              
-    $('#log-in').click(function (ev) {
+    $('#sign-in-btn').click(function (ev) {
         ev.preventDefault();
         
-        onToggleNav();        
+        onToggleNav(); 
+        
+        if ($('#sign-in-btn').hasClass('active')) {  
+            return;
+        }       
         
         var offset = $('#nav-items').offset(),
             logoOffset = $('#logo').offset(),
@@ -184,9 +186,15 @@ $(function () {
         
         _.delay(showNavItems, 2000);     
     });
+    
+    $('#toggle-nav').click(function (ev) {
+        $('#nav, #container, #footer').animate({
+            'margin-right' : 200
+        });
+    })
 
     
-    $('.close-article').click(function (ev) {
+    $('#close-stream').click(function (ev) {
         ev.preventDefault();
 
         var $content = $('#new-article-content'),
@@ -226,10 +234,10 @@ $(function () {
 
     $(window).scroll(onScroll);
 
-    $('#sign-in-btn').click(function (ev) {
+    /*$('#sign-in-btn').click(function (ev) {
         ev.stopImmediatePropagation();
         ev.preventDefault();
         
         onToggleNav();
-    });
+    });*/
 });
