@@ -5,12 +5,14 @@ $(function () {
         isCanceled = false,
         onScroll = function () {
             var scrollTop = $(window).scrollTop(),
-                $toolbar = $('.toolbar.active');
+                $toolbar = $('.toolbar');
 
             if (scrollTop > toolbarOffset) {
                 $toolbar.addClass('fixed');
                 
                 if ($toolbar.hasClass('article')) {
+                    $('#new-article-content').css('margin-top', 94);
+                    
                     return;
                 }
                 
@@ -18,11 +20,8 @@ $(function () {
             } else {
                 $toolbar.removeClass('fixed');            
                 
-                if ($toolbar.hasClass('article')) {
-                    return;
-                }
-                
                 $('body').css('margin-top', 0);
+                $('#new-article-content').css('margin-top', 0);
             }
         },
         onToggleNav,
@@ -44,8 +43,6 @@ $(function () {
                 toolbarOffset = $toolbar.offset().top;
             });
         }
-        
-        toolbarOffset = $toolbar.offset().top;
     }; 
     
     showContent = _.once(function () {
@@ -90,33 +87,32 @@ $(function () {
         oldHeader.append(content);
         
         content.show().animate({opacity: 1}, 400);
-           
-        $('#active-article', oldHeader).click(function (ev) {
-            ev.preventDefault();
-            
-            var $content = $('#new-article-content'),
-                $container = $('#container');
-                
-            $(window).scrollTop(0);
-            
-            $container.removeClass().addClass('shrink');
-            
-            $content.show().animate({
-                left: 0
-            }, 300, function () {
-                $content.css('position', '');
-                $container.hide();
-                
-                $content.find('.toolbar').addClass('active');
-                $container.find('.toolbar').removeClass('active');
-                
-                showImage();
-        
-                _.delay(showContent, 2 * 1000);
-            });
-        });
-    
     };  
+    
+    $('.active-article').click(function (ev) {
+        ev.preventDefault();
+        
+        var $content = $('#new-article-content'),
+            $container = $('#container');
+            
+        $(window).scrollTop(0);
+        
+        $container.removeClass().addClass('shrink');
+        
+        $content.show().animate({
+            left: 0
+        }, 300, function () {
+            $content.css('position', '');
+            $container.hide();
+            
+            $content.find('.toolbar').addClass('active');
+            $container.find('.toolbar').removeClass('active');
+            
+            showImage();
+    
+            _.delay(showContent, 2 * 1000);
+        });
+    });
              
     $('#log-in').click(function (ev) {
         ev.preventDefault();
@@ -133,9 +129,9 @@ $(function () {
                 $('#nav-items').css({
                     'position'  : 'absolute',
                     'top'       : '30px',
-                    'left'      : offset.left - 15
+                    'left'      : 115
                 }).show().animate({
-                    top: 10
+                    top: 0
                 }, 250, 'easeOutExpo', function () {
                     /*$('#nav-items').css({
                         'position'  : '',
@@ -147,9 +143,9 @@ $(function () {
                 $('#logo').css({
                     'position'  : 'absolute',
                     'top'       : '30px',
-                    'left'      : logoOffset.left
+                    'left'      : 0
                 }).show().animate({
-                    top: 10
+                    top: 0
                 }, 250, 'easeOutExpo', function () {
                     $('#logo').css({
                         'position'  : '',
@@ -163,7 +159,7 @@ $(function () {
                     'top'       : '30px',
                     'left'      : btnOffset.left + 15
                 }).show().animate({
-                    top: 10
+                    top: 0
                 }, 250, 'easeOutExpo', function () {
                     $('#sign-in-btn').css({
                         'position'  : '',

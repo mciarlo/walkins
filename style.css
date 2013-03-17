@@ -56,11 +56,11 @@ html, body {
     -webkit-font-smoothing: antialiased;
 }
 
-.wrapper,
-.stream-items {
+.wrapper{
     margin: 0 auto;
     padding: 0;
-    width: 940px;
+    width: 980px;
+    position: relative;
 }
 
 #wrapper:after,
@@ -108,7 +108,6 @@ a:hover {
     background: #252628;
     border-bottom: 1px solid #1a1a1a;
     min-height: 46px;
-    padding: .5em 0;
 }
 
 #nav.loading {
@@ -180,16 +179,26 @@ a:hover {
 }
 
 .toolbar.article {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 15px 0 14px;
-    background: rgba(33, 35, 37, 0.9);
+    float: left;
+    padding: 0;
+    width: 100%;
+    background: #252628;
     border-top: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid #000;
+    box-shadow: none;
 }
 
 .toolbar.article h1{
     color: white;
+    float:none;
+    margin-top: 12px;
+}
+
+#stream-id .button {
+    float: none;
+    margin: 8px 0;
+    font-size: .4em;
+    display: inline-block;
 }
 
 
@@ -206,10 +215,12 @@ a:hover {
 
 .toolbar .follower-count {
     font-size: .65em;
+    margin: .4em 0 0 0;
     float: left;
-    margin: .4em 0 0 10px;
+    width: 100%;
     font-weight: bold;
     color: #999;
+    display: none;
 }
 
 .toolbar .close-article {
@@ -232,6 +243,17 @@ a:hover {
     color: #444;
 }
 
+#ul-wrapper {
+    width: 75%;
+    float: left;
+    border-left: 1px solid rgba(0,0,0,0.25);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#ul-wrapper ul {
+    width: 150%;
+}
 .toolbar .last-updated {
     color: #868b90;
     font-size: .55em;
@@ -403,25 +425,36 @@ a:hover {
     display: inline-block;
 }
 
+.toolbar.article li {
+
+}
+
 #related-group {
     position: absolute;
     bottom: -30px;
     left: 50%;
-    margin-left: -470px;
-    width: 940px;
+    margin-left: -490px;
+    width: 980px;
     background: #3a3c3d;
     z-index: 2;
 }
 
-#related-group li {
+#related-group li,
+.toolbar.article li {
     display: inline-block;
     width: 33.3%;
     float: left;
     margin: 14px 0 16px;
 }
 
+.toolbar.article li {
+    width: 20.3%;
+}
+
 #related-group a:link,
-#related-group a:visited {
+#related-group a:visited,
+.toolbar.article li a:link,
+.toolbar.article li a:visited {
     position: relative;
     padding: 0 20px 0 102px;
     display: inline-block;
@@ -431,7 +464,15 @@ a:hover {
     line-height: 1.3;
 }
 
-#related-group a:hover{
+.toolbar.article li a:link,
+.toolbar.article li a:visited {
+    padding: 0 20px 0 85px;
+    font-size: .6em;
+    color: #999;
+}
+
+#related-group a:hover,
+.toolbar.article li a:hover{
     color: #b1b1b1;
 }
 
@@ -439,20 +480,27 @@ a:hover {
     border: 2px solid #c06406;
 }
 
-#related-group img {
+#related-group img,
+.toolbar.article li img {
     position: absolute;
     top: -2px;
     left: 12px;
     border: 2px solid transparent;
     transition: border 100ms ease-in-out;
     -webkit-transition: border 100ms ease-in-out;
-    -moz-transition: border 100ms ease-in-out;}
+    -moz-transition: border 100ms ease-in-out;
+}
+
+.toolbar.article li img {
+    width: 60px;
+}
 
 .time {
     font-size: .65em;
 }
 
-#related-group .time {
+#related-group .time,
+.toolbar.article .time {
     color: #83888e;
 }
 
@@ -463,12 +511,22 @@ a:hover {
     padding-top: 60px;
 }
 
+#stream-id {
+padding: 12px 20px;
+width: 25%;
+box-sizing: border-box;
+text-align: center;
+float: left;
+font-size: .8em;
+border-right: 1px solid rgba(255,255,255,0.05);
+}
+
 .stream-list-item {
     border-bottom: 1px dotted #dadada;
     padding: 1em 0 1em 170px;
     margin: 0 auto;
     box-sizing: border-box;
-    width: 940px;
+    width: 860px;
     position: relative;
 }
 
@@ -496,8 +554,13 @@ a:hover {
     font-size: 1.4em;
 }
 
-.stream-list-item a:hover {
+.stream-list-item a:link,
+.stream-list-item a:visited {
     color: #444;
+}
+
+.stream-list-item a:hover {
+    color: #777;
 }
 
 .button {
@@ -566,8 +629,9 @@ a:hover {
 .stream-jump {
     float: left;
     width: 100%;
-    background: #e8e8e8;
+    background: #eaeaea;
     position: relative;
+    border-bottom: 1px solid #e1e1e1;
 }
 
 .stream-toolbar {
@@ -578,13 +642,19 @@ a:hover {
 }
 
 .stream-items {
-    margin: 20px auto 50px;
+    margin: 20px auto 60px;
+}
+
+#article-content p.meta {
+    font-size: .6em;
+    color: #999;
+    margin-top: 5em;
 }
 
 .stream-items li {
     float: left;
     display: inline-block;
-    width: 220px;
+    width: 230px;
     text-align: center;
     margin-left: 20px;
     position: relative;
@@ -613,7 +683,7 @@ a:hover {
 }
 
 .stream-items img {
-    margin-bottom: .3em;
+    margin-bottom: .5em;
 }
 
 .stream-items .stream-label {
@@ -644,6 +714,7 @@ a:hover {
 
 .stream-items .time {
     color: #777;
+    margin-top: .5em;
 }
 
 .stream-items h3 {
@@ -743,26 +814,26 @@ a:hover {
     opacity: 0.7;
     background-position: bottom left;
 }
-#reuters-tv {
+/*#reuters-tv {
     font-size: 0;
     text-indent: -9999px;
     background: transparent url(images/reuters_tv.png) 0 0 no-repeat;
     width: 140px;
     height: 22px;
     float: left;
-}
+}*/
 
 #article-meta {
-    float: left;
-    width: 15%;
-    margin: 84px 0 80px;
+float: left;
+width: 120px;
+margin: 84px 0 80px 40px;
 }
 
 #article-content {
     line-height: 1.5;
     padding: 80px 0 80px;
     float: left;
-    width: 85%;
+    width: 820px;
 }
 
 #content-container {
@@ -773,7 +844,7 @@ a:hover {
 
 #article-content p.large {
     font-family: Chaparral Pro, serif;
-    font-size: 1.1em;
+    font-size: 1.2em;
     line-height: 1.3;
     margin-bottom: 1.4em;
 }
@@ -785,18 +856,26 @@ a:hover {
 
 #article-content p,
 #article-content h3 {
-    margin-right: 15%;
+    margin-right: 160px;
     margin-bottom: 1.5em;
 }
 
 #article-content h3 {
     font-weight: bold;
+    text-align: center;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    border-bottom: 5px solid #444;
+    width: 60%;
+    margin: 2em 0 2em 80px;
 }
 
 #article-content .image-wrapper {
-    float: right;
+    float: left;
+    margin: .5em 0 2em 0;
+    margin-left: -160px;
+    width: 980px;
     position: relative;
-    margin: 0 0 0px 40px;
 }
 
 #article-content .image-wrapper:hover .caption,
@@ -872,7 +951,6 @@ a:hover {
 .comment-jump:link,
 .comment-jump:visited {
 clear:left;
-    margin-top: 20px;
     float: left;
     width: 57px;
     text-align: center;
@@ -903,7 +981,7 @@ clear:left;
 }
 
 .day {
-    font-size: 1.55em;
+    font-size: 1.65em;
 }
 
 .year {
@@ -1003,7 +1081,7 @@ input {
 
 #new-article-content {
     position: absolute;
-    top: 66px;
+    top: 47px;
     left: 100%;
     width: 100%;
     z-index: 9999;
@@ -1018,14 +1096,14 @@ input {
 .grow {
     -webkit-animation: grow 300ms linear;
     opacity: 1;
-    -webkit-transform-origin: 0 66px;
+    -webkit-transform-origin: 0 46px;
     -webkit-transform: scale(1);
 }
 
 .shrink {
     -webkit-animation: shrink 300ms linear; 
     opacity: 0.3;
-    -webkit-transform-origin: 50% 66px;
+    -webkit-transform-origin: 50% 46px;
     -webkit-transform: scale(0.9);
 }
 
@@ -1038,13 +1116,13 @@ input {
 @-webkit-keyframes shrink {
     0% {
         opacity: 1;
-    -webkit-transform-origin: 50% 66px;
+    -webkit-transform-origin: 50% 46px;
         -webkit-transform: scale(1);
     }
     
     100% {
         opacity: 0.3;
-    -webkit-transform-origin: 50% 66px;
+    -webkit-transform-origin: 50% 46px;
         -webkit-transform: scale(0.9);
     }
 }
@@ -1052,12 +1130,12 @@ input {
 @-webkit-keyframes grow {    
     0% {
         opacity: 0.3;
-    -webkit-transform-origin: 50% 66px;
+    -webkit-transform-origin: 50% 46px;
         -webkit-transform: scale(0.9);
     }
     100% {
         opacity: 1;
-    -webkit-transform-origin: 50% 66px;
+    -webkit-transform-origin: 50% 46px;
         -webkit-transform: scale(1);
     }
 }
@@ -1271,9 +1349,15 @@ input {
 }
 
 .item-list {
-    width: 30%;
+    width: 27%;
+    box-sizing: border-box;
     margin-top: 20px;
     float: left;
+    background: rgb(23,24,26);
+    border-radius: 4px 0 0 4px;
+    overflow: hidden;
+    height: 420px;
+    border-right: 1px solid #000;
 }
 
 .item-list li {
@@ -1282,7 +1366,8 @@ input {
     padding-left: 105px;
     line-height: 1.3;
     min-height: 40px;
-    border-top: 1px solid #dadada;
+    border-top: 1px solid rgb(32,34,37);
+    border-bottom: 1px solid #000;
 }
 
 .item-list img {
@@ -1312,6 +1397,10 @@ input {
     color: #777;
 }
 
+
+.item-list li.active .time {
+    color: #fff;
+}
 .item-list h3 {
     font-size: .6em;
     color: #777;
@@ -1339,7 +1428,7 @@ input {
 
 #reuters-tv-display {
     float: right;
-    width: 65%;
+    width: 73%;
     padding: 20px 0 80px;
 }
 
@@ -1368,31 +1457,73 @@ input {
 
 .next-btn,
 .prev-btn {
-    position: absolute;
     display: block;
     width: 80px;
     height: 80px;
-    top: 50%;
-    margin-top: -40px;
-    left: 100%;
-    margin-left: -120px;
+    margin-left: -40px;
     border-radius: 80px;
-    background: #dadada url(images/arrow.png) -55px 32px no-repeat;
-    border-left: 1px solid #fff;
+    background: rgb(206, 109, 9) url(images/arrow.png) 48px 32px no-repeat;
     font-size: 0;
     text-indent: -9999px;
 }
 
 .next-btn:hover {
-    background: #999 url(images/arrow.png) 30px 32px no-repeat;
+    background-color: #999;
 }
 
 .prev-btn {
-    left: 0;
-    display: none;
-    margin-left: 40px;
-    border-left: none;
-    border-right: 1px solid #fff;
+    margin-left: 0px;
+    background: #e1e1e1 url(images/arrow_left.png) -74px 32px no-repeat;
 }
 
+.prev-btn:hover {
+    background-color: #999;
+}
 
+.stream-jump .label-large {
+    display: block;
+    text-align: center;
+    margin: 45px 0 10px;
+}
+
+.stream-jump .left-rule,
+.stream-jump .right-rule {
+    display: inline-block;
+    width: 60px;
+    background: transparent url(images/dash_dark_bg.png) 0 0 repeat-x;
+}
+
+.stream-jump h4 {
+    display: inline-block;
+    color: #999;
+}
+
+.stream-jump h3 {
+    display: block;
+}
+
+.stream-jump h3 a:link,
+.stream-jump h3 a:visited {
+    display: block;
+    text-align: center;
+    font-size: 2em;
+    color: #444;
+}
+
+.left-button,
+.right-button {
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 80px;
+    top: 60%;
+    overflow: hidden;
+    margin-top: -40px;
+    left: 100%;
+    margin-left: 20px;
+}
+
+.left-button {
+    left: 0;
+    margin-left: -60px;
+}
