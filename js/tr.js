@@ -135,7 +135,7 @@ $(function () {
                     'top'       : '30px',
                     'left'      : offset.left - 15
                 }).show().animate({
-                    top: 10
+                    top: 0
                 }, 250, 'easeOutExpo', function () {
                     /*$('#nav-items').css({
                         'position'  : '',
@@ -149,7 +149,7 @@ $(function () {
                     'top'       : '30px',
                     'left'      : logoOffset.left
                 }).show().animate({
-                    top: 10
+                    top: 0
                 }, 250, 'easeOutExpo', function () {
                     $('#logo').css({
                         'position'  : '',
@@ -163,7 +163,7 @@ $(function () {
                     'top'       : '30px',
                     'left'      : btnOffset.left + 15
                 }).show().animate({
-                    top: 10
+                    top: 0
                 }, 250, 'easeOutExpo', function () {
                     $('#sign-in-btn').css({
                         'position'  : '',
