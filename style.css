@@ -756,16 +756,23 @@ a:hover {
 }
 
 #article-meta {
-    float: left;
-    width: 15%;
-    margin: 84px 0 80px;
+float: left;
+width: 100px;
+margin: 84px 0 80px 40px;
+}
+
+
+#article-content p.meta {
+    font-size: .6em;
+    color: #999;
+    margin-top: 5em;
 }
 
 #article-content {
     line-height: 1.5;
     padding: 80px 0 80px;
     float: left;
-    width: 85%;
+    width: 800px;
 }
 
 #content-container {
@@ -776,7 +783,7 @@ a:hover {
 
 #article-content p.large {
     font-family: Chaparral Pro, serif;
-    font-size: 1.1em;
+    font-size: 1.2em;
     line-height: 1.3;
     margin-bottom: 1.4em;
 }
@@ -788,18 +795,26 @@ a:hover {
 
 #article-content p,
 #article-content h3 {
-    margin-right: 15%;
+    margin-right: 140px;
     margin-bottom: 1.5em;
 }
 
 #article-content h3 {
     font-weight: bold;
+    text-align: center;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    border-bottom: 5px solid #444;
+    width: 60%;
+    margin: 2em 0 2em 80px;
 }
 
 #article-content .image-wrapper {
-    float: right;
+    float: left;
+    margin: .5em 0 2em 0;
+    margin-left: -140px;
+    width: 940px;
     position: relative;
-    margin: 0 0 0px 40px;
 }
 
 #article-content .image-wrapper:hover .caption,
@@ -860,6 +875,43 @@ a:hover {
     width: 100%;
 }
 
+
+.credit {
+    color: #777;
+    font-size: .8em;
+    display: block;
+    margin-top: .2em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.image-wrapper .picture-essay {
+    position: absolute;
+    top: 10px;
+    opacity: 0;
+    left: 10px;
+    background: rgba(25,26,27,0.5) url(images/pic_essay_icon.png) 1em .7em no-repeat;
+    padding: .5em 1em .5em 3em;
+    color: white;
+    font-weight: bold;
+    font-size: .7em;
+    transition: opacity 100ms ease-in-out;
+    -webkit-transition: opacity 100ms ease-in-out;
+    -moz-transition: opacity 100ms ease-in-out;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+.image-wrapper .picture-essay:hover {
+    background: rgba(25,26,27,0.9) url(images/pic_essay_icon.png) 1em .7em no-repeat;
+}
+
+.image-wrapper img {
+    float:left;
+    width: 100%;
+}
+
 .date-box {
     border :1px solid #e1e1e1;
     text-transform: uppercase;
@@ -875,7 +927,6 @@ a:hover {
 .comment-jump:link,
 .comment-jump:visited {
 clear:left;
-    margin-top: 20px;
     float: left;
     width: 57px;
     text-align: center;
