@@ -182,7 +182,7 @@ $(function () {
     });
 
     
-    $('.close-article').click(function (ev) {
+    $('#close-stream').click(function (ev) {
         ev.preventDefault();
 
         var $content = $('#new-article-content'),
