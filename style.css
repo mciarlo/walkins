@@ -120,14 +120,15 @@ a:hover {
     margin: 10px 0 11px;
 }
 
-#nav-items {
+#nav-items,
+#trending {
     float: left;
     margin-left: 15px;
-    margin-top: 1px;
     text-align: center;
 }
 
-#nav-items li {
+#nav-items li,
+#trending li {
     display: inline-block;
     font-size: .6em;
     padding: 1.4em 0;
@@ -135,9 +136,15 @@ a:hover {
     color: white;
 }
 
+#trending li {
+    padding: 0;
+}
+
 
 #nav-items a:link,
-#nav-items a:visited {
+#nav-items a:visited,
+#trending a:link,
+#trending a:visited {
     display: inline-block;
     font-weight: bold;
     padding: 0 .6em;
@@ -145,15 +152,14 @@ a:hover {
 
 
 #nav-items a:hover,
-#nav-items a.active {
+#nav-items a.active,
+#trending a:hover {
     color: white;
 }
 
 
 #nav-items a.active {
-    color: white;
-    border-right: 1px solid #444;
-    padding-right: 1.2em
+color: white;
 }
 
 #sign-in-btn {
@@ -184,7 +190,7 @@ a:hover {
 .toolbar {
     float: left;
     width: 100%;
-    padding: 15px 0;
+    padding: 12px 0 13px;
     background: #252628;
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     border-top: 1px solid rgba(255,255,255,0.04);
@@ -200,6 +206,52 @@ a:hover {
     border-top: 1px solid rgba(255,255,255,0.04);
     border-bottom: 1px solid #000;
     box-shadow: none;
+}
+
+#trending .trending {
+    background:transparent url(images/trending_icon.png) top center no-repeat;
+    width: 16px;
+    height: 10px;
+    position: relative;
+}
+
+#trending .trending:hover .popup {
+    opacity: 1;
+}
+
+.popup {
+    position: absolute;
+    top: 50%;
+    opacity: 0;
+    left: 100%;
+    width: 60px;
+    margin-left: 4px;
+    height: 17px;
+    margin-top: -9px;
+    box-sizing: border-box;
+    font-size: .7em;
+    background: rgb(165, 94, 39);
+    color: white;
+    padding: .4em 0;
+    display: block;
+    border-radius: 2px;
+    transition: opacity 100ms linear;
+    -webkit-transition: opacity 100ms linear;
+    -moz-transition: opacity 100ms linear;
+}
+
+.nubbin {
+    position: absolute;
+    left: -9px;
+    top: 50%;
+    font-size: 0;
+    width: 0;
+    height: 0;
+    margin-top: -5px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid rgb(165, 94, 39);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
 }
 
 #nav-items .trending {
@@ -468,7 +520,9 @@ margin: 3px 0;
 #related-group {
     float: left;
     width: 100%;
-    background: #252628;
+    background: rgb(48, 28, 13);
+border-top: 1px solid rgb(41, 22, 8);
+box-shadow: inset 0 1px 0 0 rgb(58, 35, 17);
 }
 
 #related-group ul {
@@ -604,7 +658,7 @@ display: block;
     float: left;
     width: 100%;
     background: white;
-    padding-top: 60px;
+    padding-top: 20px;
 }
 
 .stream-list-item {
@@ -689,22 +743,25 @@ display: block;
 
 #load-more:link,
 #load-more:visited {
-    width: 140px;
-    margin: 0 auto 90px;
     font-size: .8em;
-    padding: 1em 1em 1em 2em;
     display: block;
     color: #999;
-    background: #dadada url(images/load_more_arrow.png) 40px 12px no-repeat;
     border: none;
-    border-radius: 0 0 4px 4px;
+    background: #f1f1f1 url(images/load_more_arrow.png) 44% 28px no-repeat;
     font-family: Avenir Next Condensed;
     text-transform: uppercase;
     font-weight: bold;
+    border-bottom: 1px dotted #dadada;
+    padding: 2em 0 2em 0;
+    margin: 0 auto 90px;
+    box-sizing: border-box;
+    width: 940px;
+    text-align: center;
+    position: relative;
 }
 
 #load-more:hover {
-    background: #c1c1c1 url(images/load_more_arrow.png) 40px -66px no-repeat;
+    background: #f1f1f1 url(images/load_more_arrow.png) 44% -50px no-repeat;
     color: #656565;
 }
 
@@ -779,12 +836,18 @@ display: block;
     position: relative;
 }
 
-.stream-items a:hover h3 {
+
+.stream-items a h3 {
     color: #444;
 }
 
+
+.stream-items a:hover h3 {
+    color: #999;
+}
+
 .stream-items a:hover .time {
-    color: #777;
+    color: #999;
 }
 
 .stream-items .time {
@@ -1557,8 +1620,8 @@ input {
     float: left;
     width: 100%;
     background: #252628;
-    padding: 2em 0;
-    font-size: .8em;
+    padding: 4em 0;
+    font-size: .5em;
     text-align: center;
     color: #999;
     overflow: hidden;
