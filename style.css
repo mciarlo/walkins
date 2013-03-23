@@ -52,7 +52,7 @@ html, body {
     font-family: "Avenir Next", Trebuchet MS, sans-serif;
     font-size: 1.1em;
     color: #444;
-    background: #000;
+    background: #f1f1f1;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -103,12 +103,16 @@ a:hover {
 /* Navigation --------------*/
 #nav {  
     font-family: Arial, sans-serif;
-    float: left;
-    width: 100%;
     background: #252628;
     border-bottom: 1px solid #1a1a1a;
     min-height: 46px;
-}
+
+    
+        position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9999;}
 
 #nav.loading {
     background: #252628 url(images/ajax-loader.gif) center 11px no-repeat;
@@ -148,13 +152,27 @@ a:hover {
     display: inline-block;
     font-weight: bold;
     padding: 0 .6em;
+    color: #a1a1a1;
+}
+
+#style-toggle {
+    float:right;
+}
+
+#style-toggle li {
+    display: inline-block;
+}
+
+#style-toggle a {
+    font-size: 0;
+    text-indent: -9999px;
 }
 
 
 #nav-items a:hover,
 #nav-items a.active,
 #trending a:hover {
-    color: white;
+    color: #444;
 }
 
 
@@ -190,12 +208,141 @@ color: white;
 .toolbar {
     float: left;
     width: 100%;
-    padding: 12px 0 13px;
-    background: #252628;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    border-top: 1px solid rgba(255,255,255,0.04);
+    background: #f1f1f1;
+    padding-top: .8em;
+    margin-bottom: 12px;
+    margin-top: 46px;
+}
+
+#stream {
+    float: left;
+    width: 74%;
+}
+
+#shadow {
+    width: 100%;
+    position: fixed;
+    top: 111px;
+    left: 0;
+    height: 5px;
     z-index: 9999;
+    display: none;
+    background: transparent url(images/newshadow.png) top center no-repeat;
+}
+
+.video-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -38px 0 0 -38px;
+    background: transparent url(images/play_btn.png) 0 0 no-repeat;
+    width: 75px;
+    height: 75px;
+}
+
+#stream .main-content.load-more {
+    background: #f1f1f1;
+    box-shadow: 0 1px 0 #fff;
+    border: 1px solid #e1e1e1;
+    text-align: center;
+    padding: 20px 0;
+      font-family: Avenir Next Condensed;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #999;
+    margin-bottom: 50px;
+    display: block;
+}
+
+#stream .main-content.load-more:hover {
+    background: #fff;
+    color :#444;
+}
+
+#current-stream{
+    background: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px #c1c1c1;
+    font-size: .8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    overflow: hidden; 
+    background: white;
+}
+
+#current-stream h1 {
+    padding: 15px 25px 5px 25px;
+    text-transform: uppercase;
+    font-family: Avenir Next Condensed;
+    font-size: 1.2em;
+}
+
+#current-stream span {
+    padding: 0 25px 15px 25px;
+    color: #777;
+    display: block;
+    font-size: .7em;
+    font-weight: normal;
+}
+
+#filters {
+    float: right;
+    width: 206px;
+}
+
+#filters.fixed {
+    position: fixed;
+    left: 856px;
+    top: 82px;
+}
+.filter {
+    background: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px #c1c1c1;
+    font-size: .65em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+
+.filter a:link,
+.filter a:visited {
+    display: block;
+    border-bottom: 1px solid #e1e1e1;
+    padding: 10px 35px 9px 55px;
     position: relative;
+}
+
+.filter li:last-child a{
+    border-bottom: none;
+}
+
+.filter .icon {
+    position: absolute;
+    top: 7px;
+    left: 25px;
+    background: transparent url(images/filter_icons.png) 0 0 no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.filter a.active {
+    background: white;
+    color: #d08336;
+}
+
+#all-content:hover .icon,
+#all-content.active .icon {
+    background-position: -42px 0;
+}
+
+.toolbar .wrapper {
+    padding: 12px 0 13px;
+    border-bottom: 1px solid #e1e1e1;
+    overflow: hidden;
+    box-shadow: 0px 1px 0 rgba(255,255,255,0.5);
 }
 
 .toolbar.article {
@@ -230,7 +377,7 @@ color: white;
     margin-top: -9px;
     box-sizing: border-box;
     font-size: .7em;
-    background: rgb(165, 94, 39);
+    background: #d08336;
     color: white;
     padding: .4em 0;
     display: block;
@@ -249,7 +396,7 @@ color: white;
     height: 0;
     margin-top: -5px;
     border-left: 5px solid transparent;
-    border-right: 5px solid rgb(165, 94, 39);
+    border-right: 5px solid #d08336;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
 }
@@ -304,7 +451,7 @@ color: white;
 .stream-toolbar h3 {
     font-family: Avenir Next Condensed;
     font-weight: bold;
-    color: #fff;
+    color: #444;
     font-size: 1.2em;
     float: left;
     text-transform: uppercase;
@@ -657,26 +804,69 @@ display: block;
 #stream-content {
     float: left;
     width: 100%;
-    background: white;
     padding-top: 20px;
 }
 
 .stream-list-item {
-    border-bottom: 1px dotted #dadada;
-    padding: 1em 0 1em 170px;
-    margin: 0 auto;
     box-sizing: border-box;
-    width: 940px;
+    width: 100%;
     position: relative;
+    margin-bottom: 30px;
 }
 
 .stream-list-item .image-wrapper {
-	position: absolute;
-	top: 1em;
-	left: 0;
-	width: 140px;
-	height: 140px;
 	overflow: hidden;
+	position: relative;
+	box-shadow: inset 0px 1px 0 rgba(255,255,255,0.3)
+}
+
+.stream-list-item .image-wrapper span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #d08336;
+    padding: .3em 40px;
+    color: white;
+    font-family: Avenir Next Condensed;
+    font-size: .8em
+}
+
+.stream-list-item .main-content {
+    margin-left: 40px;
+    background: white;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px #c1c1c1;
+    overflow: hidden;
+    padding: 0 0 35px 0;
+}
+
+.meta-items {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+}
+
+.main-content h2,
+.main-content p,
+.main-content .timestamp {
+    padding: 0 40px;
+}
+
+.main-content h2 {
+    margin: 25px 0 10px 0;
+}
+.main-content p {
+    font-size: .7em;
+    line-height: 1.4;
+}
+
+.main-content .timestamp {
+    font-size: .7em;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    color: #999;
 }
 
 .stream-list-item .stream-label,
@@ -1616,6 +1806,7 @@ input {
     font-size: .8em;    
 }
 
+
 #footer {
     float: left;
     width: 100%;
@@ -1656,4 +1847,144 @@ input {
     border-right: 1px solid #fff;
 }
 
+.comments:link,
+.comments:visited {
+    font-family: Avenir Next Condensed;
+    font-weight: bold;
+    font-size: .7em;
+    color: #999;
+}
 
+#stream .comments:hover {
+    color: #d08336;
+}
+
+.filter a:hover {
+    color: #d08336;
+}
+
+.comments .icon {
+    background: transparent url(images/meta_icons.png) 0px 0 no-repeat;
+    display: block;
+    width: 19px;
+    height: 18px;
+    
+}
+
+.comments .label {
+    margin-left: 3px;
+}
+
+.comments:hover .icon {
+    background-position: -29px 0;
+}
+
+.share {
+    font-size: 0;
+    text-indent: -9999px;
+}
+
+
+.share .icon {
+    background: transparent url(images/meta_icons.png) 0px -40px no-repeat;
+    display: block;
+    width: 20px;
+    height: 18px;
+    
+}
+
+.share,
+.favorite {
+    margin-top: 20px;
+    display: block;
+}
+
+.share:hover .icon {
+    background-position: -29px -40px;
+}
+
+.favorite {
+    font-size: 0;
+    text-indent: -9999px;
+}
+
+
+.favorite .icon {
+    background: transparent url(images/meta_icons.png) 0px -80px no-repeat;
+    display: block;
+    width: 20px;
+    height: 18px;
+    
+}
+
+.favorite:hover .icon {
+    background-position: -29px -80px;
+}
+
+#only-article .icon {
+    background-position: 0 -38px;
+}
+#only-article:hover .icon {
+    background-position: -42px -38px;
+}
+
+#only-editorials .icon {
+    background-position: 0 -75px;
+}
+#only-editorials:hover .icon {
+    background-position: -42px -75px;
+}
+
+
+#only-photo-essays .icon {
+    background-position: 0 -112px;
+}
+#only-photo-essays:hover .icon {
+    background-position: -42px -112px;
+}
+
+#only-images .icon {
+    width: 22px;
+    background-position: 0 -149px;
+}
+#only-images:hover .icon {
+    background-position: -42px -149px;
+}
+
+#only-videos .icon {
+    width: 22px;
+    background-position: 0 -186px;
+}
+#only-videos:hover .icon {
+    background-position: -42px -186px;
+}
+
+
+#only-tweets .icon {
+    width: 22px;
+    background-position: 0 -223px;
+}
+#only-tweets:hover .icon,
+#only-tweets.active .icon {
+    background-position: -42px -223px;
+}
+
+
+#recent-first .icon {
+    width: 22px;
+    background-position: 0 -258px;
+}
+#recent-first:hover .icon,
+#recent-first.active .icon {
+    background-position: -42px -258px;
+}
+
+
+#popular-first .icon {
+    width: 22px;
+    background-position: 0 -295px;
+}
+#popular-first:hover .icon,
+#popular-first.active .icon {
+    background-position: -42px -295px;
+}

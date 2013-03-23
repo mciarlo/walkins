@@ -2,8 +2,11 @@ $(function () {
     var $toolbar = $('.toolbar.active'),
         toolbarOffset = $toolbar.offset().top,
         toolbarHeight = $toolbar.outerHeight(),
+        filterOffset = $('#filters').offset().top,
+        filterLeft = $('#filters').offset().left,
+        filterWidth = $('#filters').width(),
         isCanceled = false,
-        onScroll = function () {
+        /*onScroll = function () {
             var scrollTop = $(window).scrollTop(),
                 $toolbar = $('.toolbar.active');
 
@@ -15,7 +18,7 @@ $(function () {
                     return;
                 }
                 
-                $('body').css('margin-top', toolbarHeight);
+                $('body').css('margin-top', 65);
             } else {
                 $toolbar.removeClass('fixed');            
                 
@@ -25,6 +28,21 @@ $(function () {
                 }
                 
                 $('body').css('margin-top', 0);
+            }
+        },*/
+        onScroll = function () {
+            var scrollTop = $(window).scrollTop();
+
+            if (scrollTop > filterOffset - 80) {
+                $('#filters').addClass('fixed').css({
+                    'left': filterLeft,
+                    'width' : filterWidth
+                });
+                
+    
+            } else {
+                $('#filters').removeClass('fixed').css('left', '');            
+
             }
         },
         onToggleNav,
