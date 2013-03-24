@@ -6,6 +6,7 @@ $(function () {
         filterLeft = $('#filters').offset().left,
         filterWidth = $('#filters').width(),
         isCanceled = false,
+        startTimer,
         /*onScroll = function () {
             var scrollTop = $(window).scrollTop(),
                 $toolbar = $('.toolbar.active');
@@ -51,7 +52,26 @@ $(function () {
         showContent,
         replaceMain;
         
-    var slideshowIndex = 0;
+    var slideshowIndex = 0,
+        count = 1;
+    
+    startTimer = function () {
+        var timer = $('#timer');
+        
+        if (count < 60) {
+            var unit = count === 1 ? ' second ago' : ' seconds ago';
+                
+            timer.text(count + unit);
+        
+        } else if (count > 59) {
+            var time = Math.floor(count / 60),
+                unit = time === 1 ? ' minute ago' : ' minutes ago';
+                
+            timer.text(time + unit);
+        }
+        
+        count += 1;
+    };
         
     $('.slide-next-btn').click(function (ev) {
         ev.preventDefault();
@@ -163,9 +183,10 @@ $(function () {
         $('#new-main-article').show().animate({
             opacity: 1,
             left: 0
-        }, 200, function () {                
+        }, 400, function () {                
             showImage();
-    
+            $container.hide();
+            
             _.delay(showContent, 2 * 1000);
         });
     });
@@ -230,7 +251,11 @@ $(function () {
                 $('.login-required').show().animate({
                     opacity: 1
                 });
-        
+                
+                $('.hidden').slideDown(200, function () {
+                    setInterval(startTimer, 1000);        
+                });
+                        
                 //replaceMain();
             };
         
