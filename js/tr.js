@@ -193,13 +193,7 @@ $(function () {
                     'left'      : offset.left - 15
                 }).show().animate({
                     top: 0
-                }, 250, 'easeOutExpo', function () {
-                    /*$('#nav-items').css({
-                        'position'  : '',
-                        'top'       : '',
-                        'left'      : ''
-                    });*/
-                });
+                }, 250, 'easeOutExpo');
                 
                 $('#logo').css({
                     'position'  : 'absolute',
@@ -230,10 +224,17 @@ $(function () {
                 });
                 
                 $('#nav').removeClass('loading');
-                replaceMain();
+                
+                $('#trending').html($('#new-trends').html());
+                
+                $('.login-required').show().animate({
+                    opacity: 1
+                });
+        
+                //replaceMain();
             };
         
-        $('#nav-items, #logo, #sign-in-btn').fadeOut(function () {
+        $('#nav-items, #logo, #sign-in-btn').fadeOut(100, function () {
             $('#nav-items').html($('#new-nav').html());
         });  
                   
