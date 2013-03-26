@@ -276,7 +276,7 @@
             <div id="stream-content">
                 <div class="wrapper">
                     <ul id="stream">
-                        <li id="hidden-item-in-stream" class="stream-list-item hidden">
+                        <li id="hidden-item-in-stream" class="stream-list-item hidden article featured">
                             <ul class="meta-items">
                                 <li><a class="comments" href="#"><span class="label">78</span><span class="icon"></span></a></li>
                                 <li><a class="share" href="#">Share<span class="icon"></span></a></li>
@@ -296,11 +296,11 @@
                             </div>
                         </li>
 
-                        <li class="stream-list-item">
+                        <li class="stream-list-item article favorited">
                             <ul class="meta-items">
                                 <li><a class="comments" href="#"><span class="label">1</span><span class="icon"></span></a></li>
                                 <li><a class="share" href="#">Share<span class="icon"></span></a></li>
-                                <li><a class="favorite login-required" href="#"><span class="icon"></span>Favorite</a></li>
+                                <li><a class="favorite active login-required" href="#"><span class="icon"></span>Favorite</a></li>
                             </ul>
                             
                             <div class="main-content">
@@ -316,7 +316,7 @@
                             </div>
                         </li>
                                                 
-                        <li class="stream-list-item">
+                        <li class="stream-list-item article">
                             <ul class="meta-items">
                                 <li><a class="comments" href="#"><span class="label">41</span><span class="icon"></span></a></li>
                                 <li><a class="share" href="#">Share<span class="icon"></span></a></li>
@@ -335,7 +335,27 @@
                             </div>
                         </li>
                         
-                         <li class="stream-list-item">
+                        <li class="stream-list-item image">
+                            <ul class="meta-items">
+                                <li><a class="comments" href="#"><span class="label">13</span><span class="icon"></span></a></li>
+                                <li><a class="share" href="#">Share<span class="icon"></span></a></li>
+                                <li><a class="favorite login-required" href="#"><span class="icon"></span>Favorite</a></li>
+                            </ul>
+                            
+                            <div class="main-content">
+                                <div class="image-wrapper">
+                                    <img src="images/image40.jpg" alt="image01" width="" height="" />
+                                    <img src="images/image_icon.png" class="content-icon" alt="image_icon" width="" height="" />
+                                </div>
+                                
+                                <h2>Yoko Ono tweets an image of John Lennon&rsquo;s bloodied glasses</h2>
+                                <p>Ono tweeted, "The death of a loved one is a hollowing experience. After 33 years our son Sean and I still miss him. Yoko Ono".</p>
+                                <span class="timestamp">10 minutes ago</span>
+                            <span class="stream-label">Gun Policy</span>
+                            </div>
+                        </li>
+                        
+                         <li class="stream-list-item video">
                             <ul class="meta-items">
                                 <li><a class="comments" href="#"><span class="label">18</span><span class="icon"></span></a></li>
                                 <li><a class="share" href="#">Share<span class="icon"></span></a></li>
@@ -357,7 +377,7 @@
                         
                         
                         
-                        <li class="stream-list-item">
+                        <li class="stream-list-item picture-essay featured">
                             <ul class="meta-items">
                                 <li><a class="comments" href="#"><span class="label">55</span><span class="icon"></span></a></li>
                                 <li><a class="share" href="#">Share<span class="icon"></span></a></li>
@@ -366,7 +386,9 @@
                             
                             <div class="main-content slideshow">
                                 <div id="slideshow" class="image-wrapper">
-                                    <img class="essay-icon" src="images/essay_icon.png" alt="mouseicon" width="" height="" />
+                                    <a href="#" class="slideshow-next-btn">Next</a>
+                                    <a href="#" class="slideshow-prev-btn disabled">Prev</a>
+
                                     <ul>
                                         <li><img src="images/slideshow_05.jpg" alt="image01" width="" height="" /></li>
                                         <li><img src="images/slideshow_04.jpg" alt="image01" width="" height="" /></li>
@@ -390,7 +412,7 @@
                         </li>
 
 
-                        <li class="stream-list-item">
+                        <li class="stream-list-item article">
                             <ul class="meta-items">
                                 <li><a class="comments" href="#"><span class="label">40</span><span class="icon"></span></a></li>
                                 <li><a class="share" href="#">Share<span class="icon"></span></a></li>
@@ -409,7 +431,7 @@
 </div>
                         </li>
                         
-                        <li class="stream-list-item">
+                        <li class="stream-list-item article">
                             <ul class="meta-items">
                                 <li><a class="comments" href="#"><span class="label">32</span><span class="icon"></span></a></li>
                                 <li><a class="share" href="#">Share<span class="icon"></span></a></li>
@@ -430,7 +452,7 @@
                         
                     
                         
-                        <li class="stream-list-item">
+                        <li class="stream-list-item tweet">
                             <ul class="meta-items">
                                 <li><a class="comments" href="#"><span class="label">12</span><span class="icon"></span></a></li>
                                 <li><a class="share" href="#">Share<span class="icon"></span></a></li>
@@ -457,7 +479,7 @@
                             </div>
                         </li>
                                                 
-                        <li class="stream-list-item">
+                        <li class="stream-list-item editorial">
                             <ul class="meta-items">
                                 <li><a class="comments" href="#"><span class="label">91</span><span class="icon"></span></a></li>
                                 <li><a class="share" href="#">Share<span class="icon"></span></a></li>
@@ -485,14 +507,9 @@
                     </ul>
                     
                     <div id="filters">
-                    
-                    <!-- <div id="current-stream">
-                        <h1>Latest Stories</h1>
-                        <span>Updated 3 minutes ago</span>
-                    </div>-->
                                         
                     <ul class="filter">
-                        <li><a href="#" id="all-content" class="active">
+                        <li><a href="#" id="all-content" data-filter="" class="active filter-btn">
                             <span class="icon"></span>
                             <span class="label">Everything</span>
                             
@@ -500,34 +517,39 @@
                                 Everything
                                 <span class="nubbin"></span>
                             </span></a></li>
-                        <li><a href="#" id="only-article"><span class="icon"></span><span class="label">Articles</span><span class="popup">
+                            
+                            <li><a href="#" id="only-featured" data-filter="featured" class="filter-btn"><span class="icon"></span><span class="label">Editor&rsquo;s Picks</span><span class="popup">
+                                Editor&rsquo;s Picks
+                                <span class="nubbin"></span>
+                            </span></a></li>
+                        <li><a href="#" id="only-article" data-filter="article" class="filter-btn"><span class="icon"></span><span class="label">Articles</span><span class="popup">
                                 Articles
                                 <span class="nubbin"></span>
                             </span></a></li>
-                        <li><a href="#" id="only-editorials"><span class="icon"></span><span class="label">Editorials</span><span class="popup">
+                        <li><a href="#" id="only-editorials" data-filter="editorial" class="filter-btn"><span class="icon"></span><span class="label">Editorials</span><span class="popup">
                                 Editorials
                                 <span class="nubbin"></span>
                             </span></a></li>
-                        <li><a href="#" id="only-photo-essays"><span class="icon"></span><span class="label">Photo Essays</span><span class="popup">
+                        <li><a href="#" id="only-photo-essays" data-filter="picture-essay" class="filter-btn"><span class="icon"></span><span class="label">Photo Essays</span><span class="popup">
                                 Photo Essays
                                 <span class="nubbin"></span>
                             </span></a></li>
-                        <li><a href="#" id="only-images"><span class="icon"></span><span class="label">Images</span>
+                        <li><a href="#" id="only-images" data-filter="image" class="filter-btn"><span class="icon"></span><span class="label">Images</span>
                         <span class="popup">
                                 Images
                                 <span class="nubbin"></span>
                             </span></a></li>
-                        <li><a href="#" id="only-videos"><span class="icon"></span><span class="label">Video</span><span class="popup">
+                        <li><a href="#" id="only-videos" data-filter="video" class="filter-btn"><span class="icon"></span><span class="label">Video</span><span class="popup">
                                 Video
                                 <span class="nubbin"></span>
                             </span></a></li>
-                        <li><a href="#" id="only-tweets"><span class="icon"></span><span class="label">Tweets</span>
+                        <li><a href="#" id="only-tweets" data-filter="tweet" class="filter-btn"><span class="icon"></span><span class="label">Tweets</span>
                         <span class="popup">
                                 Tweets
                                 <span class="nubbin"></span>
                             </span></a></li>
                             
-                        <li class="login-required"><a href="#" id="only-favorites"><span class="icon"></span><span class="label">Favorites</span>
+                        <li class="login-required"><a href="#" data-filter="favorited" id="only-favorites" class="filter-btn"><span class="icon"></span><span class="label">Favorites</span>
                         <span class="popup">
                                 Favorites
                                 <span class="nubbin"></span>

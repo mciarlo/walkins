@@ -52,7 +52,7 @@ html, body {
     font-family: "Avenir Next", Trebuchet MS, sans-serif;
     font-size: 1.1em;
     color: #444;
-    background: #f1f1f1;
+    background: #16171a;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -234,6 +234,7 @@ color: white;
 #stream {
     float: left;
     width: 74%;
+    min-height: 430px;
 }
 
 #shadow {
@@ -527,7 +528,7 @@ margin-top: 0;
     left: 0;
     width: 100%;
     background: #f1f1f1;
-    z-index: 9998;
+    z-index: 9997;
 }
 
 #container,
@@ -1809,9 +1810,9 @@ input {
 
 .shrink {
     -webkit-animation: shrink 300ms linear; 
-    opacity: 0.3;
+    opacity: 0.2;
     -webkit-transform-origin: 50% 66px;
-    -webkit-transform: scale(0.9);
+    -webkit-transform: scale(0.7);
 }
 
 #article-content.loading {
@@ -1828,17 +1829,17 @@ input {
     }
     
     100% {
-        opacity: 0.3;
+        opacity: 0.2;
     -webkit-transform-origin: 50% 66px;
-        -webkit-transform: scale(0.9);
+        -webkit-transform: scale(0.7);
     }
 }
 
 @-webkit-keyframes grow {    
     0% {
-        opacity: 0.3;
+        opacity: 0.2;
     -webkit-transform-origin: 50% 66px;
-        -webkit-transform: scale(0.9);
+        -webkit-transform: scale(0.7);
     }
     100% {
         opacity: 1;
@@ -2287,8 +2288,12 @@ display: block;
     background: transparent url(images/meta_icons.png) 0px -80px no-repeat;
     display: block;
     width: 20px;
-    height: 18px;
-    
+    height: 18px;  
+}
+
+.favorite.active .icon,
+.favorite.active:hover .icon {
+    background-position: -55px -80px;
 }
 
 .favorite:hover .icon {
@@ -2345,12 +2350,22 @@ display: block;
 
 #only-favorites .icon {
     width: 22px;
-    background-position: 1px -336px
+    background-position: 1px -375px
 }
 
 #only-favorites:hover .icon,
 #only-favorites.active .icon {
-    background-position: -40px -336px;
+    background-position: -41px -375px;
+}
+
+#only-featured .icon {
+    width: 22px;
+    background-position: -1px -336px
+}
+
+#only-featured:hover .icon,
+#only-featured.active .icon {
+    background-position: -42px -336px;
 }
 
 
@@ -2530,7 +2545,7 @@ display: none;
 border-radius: 1px;
 }
 
-#slideshow .essay-icon {
+#stream .content-icon {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -2678,7 +2693,7 @@ border-radius: 1px;
     left: auto;
     width: auto;
     margin-top: 1px;
-border-right: 1px solid #333;
+border-right: 1px solid rgb(59, 62, 66);
 padding-right: 20px;
 }
 
@@ -2736,4 +2751,33 @@ height: 18px;
 
 #picture-essay .toolbar h1 {
     background: transparent url(images/stream_icon_large.png) 3px 3px no-repeat;
+}
+
+.slideshow-next-btn,
+.slideshow-prev-btn {
+    background: rgb(25,27,32) url(images/arrow.png) 10px 12px no-repeat;
+    padding: 20px;
+    border-radius: 30px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 0;
+    text-indent: -9999px;
+    opacity: 0.5;
+}
+
+.slideshow-prev-btn {
+    -webkit-transform: rotateY(180deg);
+    right: auto;
+    left: 20px;
+}
+
+.slideshow-next-btn:hover,
+.slideshow-prev-btn:hover {
+    opacity: 0.8;
+}
+
+.slideshow-next-btn.disabled,
+.slideshow-prev-btn.disabled {
+    display: none;
 }

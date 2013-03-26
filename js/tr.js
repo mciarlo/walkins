@@ -49,8 +49,31 @@ $(function () {
             'margin-left' : 0
         });
     };
+    
+    $('.filter-btn').click(function (ev) {
+        ev.preventDefault();
         
-    $('#slideshow').mousemove(function (ev) {
+        var $this = $(this),
+            filter = $this.data('filter');
+                
+        $this.parents('.filter:first').find('.filter-btn').removeClass('active');
+        $this.addClass('active');
+        
+        $('html, body').animate({
+            scrollTop : 0
+        }, 300, function () {
+            if (!filter.length) {
+                $('#stream').find('.stream-list-item').slideDown(150);
+                return;
+            }
+            
+            $('#stream').find('> li.' + filter).slideDown(150);
+            
+            $('#stream').find('> li:not(.' + filter + ')').slideUp(150);
+        });
+    });
+        
+    /*$('#slideshow').mousemove(function (ev) {
         ev.preventDefault();
         
         var width = $('#slideshow').width(),
@@ -88,18 +111,18 @@ $(function () {
         $('#slideshow ul').css({
             'marginLeft': - ($('#slideshow').width() * index)
         });
-    });
+    });*/
     
     
     
-    $('.slide-prev-btn').click(function (ev) {
+    $('.slideshow-prev-btn').click(function (ev) {
         ev.preventDefault();
                 
         if (slideshowIndex <= 0) {
             return;
         }
         
-        $('.slide-next-btn').removeClass('disabled');
+        $('.slideshow-next-btn').removeClass('disabled');
         
         slideshowIndex -= 1;
 
@@ -108,7 +131,27 @@ $(function () {
         }, 150);
         
         if (slideshowIndex === 0) {
-            $('.slide-prev-btn').addClass('disabled');
+            $('.slideshow-prev-btn').addClass('disabled');
+        }
+    });
+    
+    $('.slideshow-next-btn').click(function (ev) {
+        ev.preventDefault();
+                
+        if (slideshowIndex >= $('#slideshow img').length) {
+            return;
+        }
+        
+        $('.slideshow-prev-btn').removeClass('disabled');
+        
+        slideshowIndex += 1;
+
+        $('#slideshow ul').animate({
+            'marginLeft': - ($('#slideshow').width() * slideshowIndex)
+        }, 150);
+        
+        if (slideshowIndex === $('#slideshow img').length - 1) {
+            $('.slideshow-next-btn').addClass('disabled');
         }
     });
     
