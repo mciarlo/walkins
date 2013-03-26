@@ -49,7 +49,7 @@ table {
 }
 
 html, body {
-    font-family: "Avenir Next", Trebuchet MS, sans-serif;
+    font-family: "Avenir Next", Avenir Next Regular, Trebuchet MS, sans-serif;
     font-size: 1.1em;
     color: #444;
     background: #16171a;
@@ -72,6 +72,7 @@ html, body {
     line-height: 0;
     height: 0;
 }
+
 
 /* just in case */
 em {
@@ -270,7 +271,7 @@ color: white;
     border: 1px solid #e1e1e1;
     text-align: center;
     padding: 20px 0;
-      font-family: Avenir Next Condensed;
+      font-family: Avenir Next Condensed, Avenir Next Condensed Medium;
     text-transform: uppercase;
     font-weight: bold;
     color: #999;
@@ -301,7 +302,7 @@ color: white;
 #current-stream h1 {
     padding: 15px 25px 5px 25px;
     text-transform: uppercase;
-    font-family: Avenir Next Condensed;
+    font-family: Avenir Next Condensed, Avenir Next Condensed Medium;
     font-size: 1.2em;
 }
 
@@ -528,6 +529,10 @@ margin-top: 0;
     left: 0;
     width: 100%;
     background: #f1f1f1;
+    z-index: 10;
+}
+
+#new-main-article .toolbar {
     z-index: 9997;
 }
 
@@ -554,6 +559,7 @@ margin-top: 0;
 
 #new-main-article {
     padding-top: 13px;
+    margin-top: 46px;;
 }
 
 .toolbar .follow-btn {
@@ -577,7 +583,7 @@ margin-top: 0;
 
 .toolbar h1,
 .stream-toolbar h3 {
-    font-family: Avenir Next Condensed;
+    font-family: Avenir Next Condensed, Avenir Next Condensed Medium;
     font-weight: bold;
     color: #444;
     font-size: 1.2em;
@@ -665,7 +671,7 @@ margin-top: 0;
 }
 
 #main-headline {
-    font-family: Chaparral Pro, serif;
+    font-family: Chaparral Pro, Palatino, serif;
     font-weight: bold;
     color: #444;
     text-align: center;
@@ -689,7 +695,7 @@ margin-top: 0;
     text-align: center;
     display: block;
     z-index: 2;
-    font-family: Avenir Next Condensed;
+    font-family: Avenir Next Condensed, Avenir Next Condensed Medium;
     color: #fd8101;
 }
 
@@ -1276,7 +1282,7 @@ right: 0;
     font-weight: bold;
     line-height: 1.1;
     font-size: 1.6em;
-    font-family: Avenir Next Condensed;
+    font-family: Avenir Next Condensed, Avenir Next Condensed Medium;
 }
 
 .stream-list-item a:link,
@@ -1333,7 +1339,7 @@ right: 0;
     color: #999;
     border: none;
     background: #f1f1f1 url(images/load_more_arrow.png) 44% 28px no-repeat;
-    font-family: Avenir Next Condensed;
+    font-family: Avenir Next Condensed, Avenir Next Condensed Medium;
     text-transform: uppercase;
     font-weight: bold;
     border-bottom: 1px dotted #dadada;
@@ -1404,7 +1410,7 @@ right: 0;
 }
 
 .stream-items .stream-label {
-    font-family: Avenir Next Condensed;
+    font-family: Avenir Next Condensed, Avenir Next Condensed Medium;
     color: #fd8101;
     text-transform: uppercase;
     font-weight: bold;
@@ -1508,7 +1514,7 @@ margin: 14px 0 80px 80px;
 }
 
 #article-content p.large {
-    font-family: Chaparral Pro, serif;
+    font-family: Chaparral Pro, Palatino, serif;
     font-size: 1.2em;
     line-height: 1.3;
     margin-bottom: 1.4em;
@@ -1532,7 +1538,7 @@ margin: 14px 0 80px 80px;
     font-size: 1.6em;
     text-transform: uppercase;
     border-bottom: 5px solid #444;
-    font-family: Chaparral Pro, serif;
+    font-family: Chaparral Pro, Palatino, serif;
     width: 300px;
     margin: 2em auto;
 }
@@ -1649,7 +1655,7 @@ margin: 14px 0 80px 80px;
     text-transform: uppercase;
     text-align: center;
     width: 55px;
-    font-family: Avenir Next Condensed;
+    font-family: Avenir Next Condensed, Avenir Next Condensed Medium;
     color: #777;
     padding-bottom: 10px;
     float: left;
@@ -1715,7 +1721,7 @@ padding-top: 1.5em;
 }
 
 #comment-section h2 {
-   font-family: Avenir Next Condensed;
+   font-family: Avenir Next Condensed, Avenir Next Condensed Medium;
     font-size: 1.8em;
     text-transform: uppercase;
     text-align: center;
@@ -1735,7 +1741,7 @@ padding-top: 1.5em;
 #comment-section p {
     width: 70%;
     margin: 0 auto;
-    font-family: Chaparral Pro, serif;
+    font-family: Chaparral Pro, Palatino, serif;
     font-size: .9em;
     line-height: 1.4;
     margin-top: 1em;
@@ -1966,7 +1972,7 @@ input {
 }
 
 #user-settings h4 {
-    font-family: Avenir Next Condensed;
+    font-family: Avenir Next Condensed, Avenir Next Condensed Medium;
     color: white;
     font-weight: bold;
     display: inline-block;
@@ -2222,7 +2228,7 @@ input {
 #picture-essay .comments:visited,
 #new-main-article .comments:link,
 #new-main-article .comments:visited {
-    font-family: Avenir Next Condensed;
+    font-family: Avenir Next Condensed, Avenir Next Condensed Medium;
     font-weight: bold;
     font-size: .7em;
     color: #999;
@@ -2583,7 +2589,7 @@ border-radius: 1px;
 
 #picture-essay {
     margin-top: 108px;
-    padding-top: 17px;
+    padding-top: 16px;
     position: absolute;
     top: 0;
     left: 100%;
@@ -2608,6 +2614,10 @@ border-radius: 1px;
 #picture-essay #stream-explorer .wrapper{
     border-bottom: 1px solid #1c1d1f;
     box-shadow: 0 1px 0 rgba(255,255,255,0.08);
+}
+
+#new-main-article #stream-explorer {
+    margin-top: 67px;
 }
 
 
