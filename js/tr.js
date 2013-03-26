@@ -11,7 +11,8 @@ $(function () {
         images,
         showImage,
         showContent,
-        replaceMain;
+        replaceMain,
+        scrollLast;
         
     $('#slideshow ul').css({
         width: $('#slideshow li').width() * $('#slideshow img').length
@@ -240,21 +241,22 @@ $(function () {
     $('#active-article').click(function (ev) {
         ev.preventDefault();
         
+        scrollLast = $(window).scrollTop();
+        
+        $(window).scrollTop(0);       
+
+        
         var $content = $('#new-main-article'),
             $container = $('#container');
-            
-        $(window).scrollTop(0);
+                    
+        $('#overlay').fadeIn(400);
         
-        $container.removeClass().addClass('shrink');
-        
-        $('#new-main-article').show().animate({
+        $content.addClass('animating').show().animate({
             opacity: 1,
             left: 0
         }, 400, function () {                
-            showImage();
             $container.hide();
-            
-            _.delay(showContent, 2 * 1000);
+            $content.removeClass('animating')
         });
     });
     
@@ -264,15 +266,16 @@ $(function () {
         var $content = $('#picture-essay'),
             $container = $('#container');
             
-        $(window).scrollTop(0);
+        $(window).scrollTop(0);       
+                    
+        $('#overlay').fadeIn(400);
         
-        $container.removeClass().addClass('shrink');
-        
-        $content.show().animate({
+        $content.addClass('animating').show().animate({
             opacity: 1,
             left: 0
         }, 400, function () {                
             $container.hide();
+            $content.removeClass('animating')
         });
     });
 
@@ -361,16 +364,16 @@ $(function () {
 
         var $content = $('#new-article-content'),
             $container = $('#container'); 
-            
+             
         $(window).scrollTop(0);       
+       
+        $('#overlay').fadeOut(400);
+        $container.show();
         
-        $container.show().removeClass().addClass('grow');
-        
-       $('#new-main-article').animate({
+        $('#new-main-article').animate({
             opacity: 0,
             left: '100%'
         }, 200, function () {
-            $container.removeClass();
             $('#new-main-article').hide();
         });
     });
@@ -381,15 +384,15 @@ $(function () {
         var $content = $('#picture-essay'),
             $container = $('#container'); 
             
-        $(window).scrollTop(0);       
+        $(window).scrollTop(0); 
         
-        $container.show().removeClass().addClass('grow');
-        
-       $content.animate({
+        $('#overlay').fadeOut(400);
+        $container.show();      
+                
+        $content.animate({
             opacity: 0,
             left: '100%'
         }, 200, function () {
-            $container.removeClass();
             $content.hide();
         });
     });
